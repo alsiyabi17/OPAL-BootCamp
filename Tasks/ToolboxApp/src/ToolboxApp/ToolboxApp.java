@@ -1,3 +1,4 @@
+
 package ToolboxApp;
 
 import java.util.Scanner;
@@ -60,49 +61,37 @@ public class ToolboxApp {
     }
 
     public static void menu() {
-        System.out.println("Celsius to Fahrenheit");
-        System.out.println("Even or odd");
-        System.out.println("Maximum of three numbers");
-        System.out.println("Factorial");
-        System.out.println("Multiplication table");
-        System.out.println("Triangle of stars");
-        System.out.println("Prime check");
-        System.out.println("Reverse a number");
-        System.out.println("Number pyramid");
-        System.out.println("Exit");
+        System.out.println("1. Celsius to Fahrenheit");
+        System.out.println("2. Even or odd");
+        System.out.println("3. Maximum of three numbers");
+        System.out.println("4. Factorial");
+        System.out.println("5. Multiplication table");
+        System.out.println("6. Triangle of stars");
+        System.out.println("7. Prime check");
+        System.out.println("8. Reverse a number");
+        System.out.println("9. Number pyramid");
+        System.out.println("0. Exit");
     }
 
     public static void celsiusToFahrenheit() {
-        double c = 0;
+        System.out.println("Please enter the temperature in Celsius: ");
 
-        Scanner tempObject = new Scanner(System.in);
+        double c = inputObject.nextDouble();
 
-        System.out.print("Please enter the temperature in Celsius: ");
-        String userInputTemp = tempObject.nextLine();
-
-        tempObject.close();
-
-        c = Double.parseDouble(userInputTemp);
-
-        //C to F
         double Fahrenheit = (c * 9 / 5 + 32);
 
         System.out.println("Temperature in Fahrenheit " + Fahrenheit);
     }
 
     public static void evenOrOdd() {
-        int num = 0;
-        Scanner number = new Scanner(System.in);
         System.out.println("Enter a number : ");
-        String UserInput = number.nextLine();
-        number.close();
-        num = Integer.parseInt(UserInput);
+        int num = inputObject.nextInt();
+
         if (num % 2 == 0) {
             System.out.println(num + " is even.");
         } else {
             System.out.println(num + " is odd.");
         }
-
     }
 
     public static void maxOfThree() {
@@ -111,13 +100,17 @@ public class ToolboxApp {
         int second = inputObject.nextInt();
         int third = inputObject.nextInt();
 
-        if (first > second && first > third) {
-            System.out.println("First is largest");
-        } else if (second > first && second > third) {
-            System.out.println("Second is largest");
-        } else if (third > first && third > second) {
-            System.out.println("Third is largest");
+        int largest = first;
+
+        if (second > largest) {
+            largest = second;
         }
+
+        if (third > largest) {
+            largest = third;
+        }
+
+        System.out.println("The largest number is: " + largest);
     }
 
     public static void factorial() {
@@ -129,86 +122,92 @@ public class ToolboxApp {
             System.out.println("Number should be between 0 - 15");
             return;
         }
+
         long result = 1;
         for (int i = 1; i <= number; i++) {
             result *= i;
         }
+
         System.out.println(number + "! = " + result);
     }
 
-    public static void multiplicationTable(){
+    public static void multiplicationTable() {
 
         System.out.println("Enter a number : ");
         int number = inputObject.nextInt();
 
-        for ( int i = 1; i <= 10; i++){
+        for (int i = 1; i <= 10; i++) {
             System.out.println(number + " X " + i + " = " + (number * i));
         }
     }
 
-    public static void starTriangle(){
+    public static void starTriangle() {
         System.out.println("Enter a number of rows : ");
         int rows = inputObject.nextInt();
 
-        for (int i = 1; i <= rows; i++){
-            for ( int j = 1; j <= i; j++){
-                System.out.println("* ");
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
             }
             System.out.println();
         }
     }
 
-    public static void isPrime(){
+    public static void isPrime() {
         System.out.println("Enter a number grater than 1  : ");
         int number = inputObject.nextInt();
 
-        if ( number <= 1){
+        if (number <= 1) {
             System.out.println("Plese enter a number grater than 1 ");
             return;
         }
+
         boolean prime = true;
-        for ( int i = 2; i <= number; i++){
-            if (number % i == 0){
+        for (int i = 2; i <= number / i; i++) {
+            if (number % i == 0) {
                 prime = false;
                 break;
             }
         }
-        if ( prime ) {
+
+        if (prime) {
             System.out.println("is Prime");
-        }
-        else {
+        } else {
             System.out.println("not Prime");
         }
     }
 
-    public static void reverseNumber(){
+    public static void reverseNumber() {
         System.out.println("Enter a Positive number  : ");
         int number = inputObject.nextInt();
 
-        if ( number <= 0 ){
+        if (number <= 0) {
             System.out.println("Plese Enter a Positive number : ");
+            return;
         }
+
         int reverse = 0;
-        while(number > 0){
+        while (number > 0) {
             int x = number % 10;
             reverse = reverse * 10 + x;
             number = number / 10;
         }
+
         System.out.println("Reversed number : " + reverse);
     }
 
-    public static void numberPyramid(){
+    public static void numberPyramid() {
         System.out.println("Enter number of rows : ");
         int rows = inputObject.nextInt();
-        for (int i = 1; i <= rows; i++){
-            for ( int j = 1; j <= i; j++){
-                System.out.println(j);
-                if ( j < i){
-                    System.out.println(" ");
+
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+                if (j < i) {
+                    System.out.print(" ");
                 }
             }
             System.out.println();
         }
-
     }
 }
