@@ -128,10 +128,9 @@ public class ToolboxApp {
         if (number < 0 || number > 15) {
             System.out.println("Number should be between 0 - 15");
             return;
-            ;
         }
-        int result = 1;
-        for (i = 1; i <= number; i++) {
+        long result = 1;
+        for (int i = 1; i <= number; i++) {
             result *= i;
         }
         System.out.println(number + "! = " + result);
@@ -160,7 +159,26 @@ public class ToolboxApp {
     }
 
     public static void isPrime(){
+        System.out.println("Enter a number grater than 1  : ");
+        int number = inputObject.nextInt();
 
+        if ( number <= 1){
+            System.out.println("Plese enter a number grater than 1 ");
+            return;
+        }
+        boolean prime = true;
+        for ( int i = 2; i <= number; i++){
+            if (number % i == 0){
+                prime = false;
+                break;
+            }
+        }
+        if ( prime ) {
+            System.out.println("is Prime");
+        }
+        else {
+            System.out.println("not Prime");
+        }
     }
 
     public static void reverseNumber(){
