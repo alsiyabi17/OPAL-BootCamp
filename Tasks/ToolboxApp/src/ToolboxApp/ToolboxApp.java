@@ -137,9 +137,14 @@ public class ToolboxApp {
         System.out.println(number + "! = " + result);
     }
 
-
     public static void multiplicationTable(){
 
+        System.out.println("Enter a number : ");
+        int number = inputObject.nextInt();
+        int i = number;
+        for ( i = 1; i <= 10; i++){
+            System.out.println(number + " X " + i + " = " + (number * i));
+        }
     }
 
     public static void starTriangle(){
