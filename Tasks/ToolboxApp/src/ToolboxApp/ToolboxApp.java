@@ -182,7 +182,19 @@ public class ToolboxApp {
     }
 
     public static void reverseNumber(){
+        System.out.println("Enter a Positive number  : ");
+        int number = inputObject.nextInt();
 
+        if ( number <= 0 ){
+            System.out.println("Plese Enter a Positive number : ");
+        }
+        int reverse = 0;
+        while(number > 0){
+            int x = number % 10;
+            reverse = reverse * 10 + x;
+            number = number / 10;
+        }
+        System.out.println("Reversed number : " + reverse);
     }
 
     public static void numberPyramid(){
