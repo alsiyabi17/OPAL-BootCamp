@@ -198,6 +198,17 @@ public class ToolboxApp {
     }
 
     public static void numberPyramid(){
+        System.out.println("Enter number of rows : ");
+        int rows = inputObject.nextInt();
+        for (int i = 1; i <= rows; i++){
+            for ( int j = 1; j <= i; j++){
+                System.out.println(j);
+                if ( j < i){
+                    System.out.println(" ");
+                }
+            }
+            System.out.println();
+        }
 
     }
 }
