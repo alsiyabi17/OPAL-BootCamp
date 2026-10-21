@@ -141,14 +141,22 @@ public class ToolboxApp {
 
         System.out.println("Enter a number : ");
         int number = inputObject.nextInt();
-        int i = number;
-        for ( i = 1; i <= 10; i++){
+
+        for ( int i = 1; i <= 10; i++){
             System.out.println(number + " X " + i + " = " + (number * i));
         }
     }
 
     public static void starTriangle(){
+        System.out.println("Enter a number of rows : ");
+        int rows = inputObject.nextInt();
 
+        for (int i = 1; i <= rows; i++){
+            for ( int j = 1; j <= i; j++){
+                System.out.println("* ");
+            }
+            System.out.println();
+        }
     }
 
     public static void isPrime(){
