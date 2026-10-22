@@ -63,6 +63,23 @@ public class ArraysTask {
         return -1;
     }
 
+    // Question 4: Reverse the Array
+    static int[] reverseArray(int[] arr){
+        int[] reversed = new int[arr.length];
+
+        for ( int i =0; i < arr.length; i++){
+            reversed[i] = arr[arr.length - 1 - i];
+        }
+        return reversed;
+    }
+
+    static void printArray(int[] arr){
+        for ( int i = 0; i < arr.length; i++){
+            System.out.println(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args){
 
     }
