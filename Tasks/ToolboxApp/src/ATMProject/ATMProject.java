@@ -49,8 +49,6 @@ public class ATMProject {
                     return true;
                 } else {
                     attempts++;
-                    System.out.println("wrong pin, Attempts left : "
-                            + (3 - attempts));
                 }
             }
 
@@ -124,7 +122,7 @@ public class ATMProject {
 
     // checkBalance
     public static void checkBalance() {
-        System.out.printf("current balance = %.2f%n", balance);
+        System.out.println("current balance = " + String.format("%.2f", balance));
     }
 
     // deposit
@@ -141,9 +139,11 @@ public class ATMProject {
 
         if (amount <= 0) {
             System.out.println("Deposit must be greater than 0");
-        } else if (amount > 5000) {
+        }
+        else if (amount > 5000) {
             System.out.println("Maximum deposit is 5000");
-        } else {
+        }
+        else {
             balance += amount;
 
             depositCount++;
@@ -153,7 +153,7 @@ public class ATMProject {
                 highestDeposit = amount;
             }
 
-            System.out.printf("Deposit successful, Balance : %.2f%n", balance);
+            System.out.println("Deposit successful, Balance : " + String.format("%.2f", balance));
         }
     }
 
@@ -186,11 +186,10 @@ public class ATMProject {
 
         double fee = calculateFee(amount);
 
-        System.out.printf("Fee : %.2f%n", fee);
+        System.out.println("Fee : " + String.format("%.2f", fee));
 
         if (balance < amount + fee) {
-            System.out.println("Insufficient balance to cover the "
-                    + "withdrawal and fee.");
+            System.out.println("Insufficient balance to cover the " + "withdrawal and fee.");
         } else {
             balance -= amount + fee;
 
@@ -202,8 +201,8 @@ public class ATMProject {
                 highestWithdrawal = amount;
             }
 
-            System.out.printf("Withdrawal successful, Balance : %.2f%n",
-                    balance);
+            System.out.println("Withdrawal successful, Balance : "
+                    + String.format("%.2f", balance));
         }
     }
 
@@ -211,7 +210,8 @@ public class ATMProject {
     public static double calculateFee(double amount) {
         if (amount <= 500) {
             return 2.00;
-        } else {
+        }
+        else {
             return 5.00;
         }
     }
@@ -220,11 +220,14 @@ public class ATMProject {
     public static void accountTier() {
         if (balance < 1000) {
             System.out.println("Tier : Bronze, interest rate : 1%");
-        } else if (balance < 5000) {
+        }
+        else if (balance < 5000) {
             System.out.println("Tier : Silver, interest rate : 2%");
-        } else if (balance < 20000) {
+        }
+        else if (balance < 20000) {
             System.out.println("Tier : Gold, interest rate : 3%");
-        } else {
+        }
+        else {
             System.out.println("Tier : Platinum, interest rate : 4%");
         }
     }
@@ -266,24 +269,24 @@ public class ATMProject {
         for (int year = 1; year <= years; year++) {
             projectedBalance *= (1 + interestRate);
 
-            System.out.printf("Year : %d %.2f%n", year, projectedBalance);
+            System.out.println("Year : " + year + " " + String.format("%.2f", projectedBalance));
         }
     }
 
     // Option 6: Receipt Summary
     public static void receiptSummary() {
         System.out.println("Deposits : " + depositCount);
-        System.out.printf("total : %.2f%n", totalDeposits);
+        System.out.println("total : " + String.format("%.2f", totalDeposits));
 
         System.out.println("Withdrawals: " + withdrawalCount);
-        System.out.printf(" total : %.2f%n", totalWithdrawals);
+        System.out.println(" total : " + String.format("%.2f", totalWithdrawals));
 
         System.out.println("Transfers : " + transferCount);
-        System.out.printf("total : %.2f%n", totalTransfers);
+        System.out.println("total : " + String.format("%.2f", totalTransfers));
 
-        System.out.printf("Balance : %.2f%n", balance);
-        System.out.printf("Highest deposit : %.2f%n", highestDeposit);
-        System.out.printf("Highest withdrawal : %.2f%n", highestWithdrawal);
+        System.out.println("Balance : " + String.format("%.2f", balance));
+        System.out.println("Highest deposit : " + String.format("%.2f", highestDeposit));
+        System.out.println("Highest withdrawal : " + String.format("%.2f", highestWithdrawal));
     }
 
     // Option 7: Change PIN
@@ -370,7 +373,7 @@ public class ATMProject {
 
         double fee = calculateFee(amount);
 
-        System.out.printf("Fee : %.2f%n", fee);
+        System.out.println("Fee : " + String.format("%.2f", fee));
 
         if (balance < amount + fee) {
             System.out.println("Insufficient balance to cover the transfer and fee");
@@ -379,7 +382,7 @@ public class ATMProject {
             transferCount++;
             totalTransfers += amount;
             System.out.println("Transfer successful to account : " + accountNumber);
-            System.out.printf("Balance : %.2f%n", balance);
+            System.out.println("Balance : " + String.format("%.2f", balance));
         }
     }
 }
