@@ -80,6 +80,33 @@ public class ArraysTask {
         System.out.println();
     }
 
+    // Question 5: Student Grades
+    static int[] readGrades(int size){
+        int[] grades = new int[size];
+
+        for (int i = 0; i < grades.length; i++){
+            System.out.println("Enter grade " + (i+1));
+            grades[i] = input.nextInt();
+
+            while (grades[i] < 0 || grades[i] > 100){
+                System.out.println("Plese enter number between 0 - 100");
+                grades[i] = input.nextInt();
+            }
+        }
+        return grades;
+    }
+
+    static int countPassed(int[] grades){
+        int count = 0;
+        for (int i =0; i < grades.length; i++){
+            if (grades[i] >= 50){
+                count++;
+            }
+        }
+        return count;
+    }
+
+
     public static void main(String[] args){
 
     }
