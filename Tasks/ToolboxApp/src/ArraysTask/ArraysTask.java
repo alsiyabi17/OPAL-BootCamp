@@ -42,6 +42,26 @@ public class ArraysTask {
         return min;
     }
 
+    // Question 3: Count and Search
+    static int countEven(int[] arr){
+        int count = 0;
+
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] % 2 == 0){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    static int indexOf(int[] arr, int target){
+        for ( int i = 0; i < arr.length; i++){
+            if(arr[i] == target){
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public static void main(String[] args){
 
