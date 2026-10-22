@@ -107,9 +107,26 @@ public class ArraysTask {
     }
 
 
+    // Bonus
+    static int secondLargest(int[] arr){
+        int largest = Integer.MAX_VALUE;
+        int second = Integer.MIN_VALUE;
+
+        for ( int i =0 ; i < arr.length; i++){
+            if ( arr[i] > largest){
+                second = largest;
+                largest = arr[i];
+            }
+            else if (arr[i] < largest && arr[i] > second){
+                second = arr[i];
+            }
+        }
+        return second;
+    }
+
+
     public static void main(String[] args){
 
     }
-
-    // Question 1: Sum and Average
+    
 }
