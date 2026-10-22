@@ -126,7 +126,50 @@ public class ArraysTask {
 
 
     public static void main(String[] args){
+        int[] numbers = {12, 7, 25, 3, 18, 9, 30, 14};
 
+        // Q1
+        System.out.println("sum = " + SumArray(numbers));
+        System.out.println("Average = " + AvgArray(numbers));
+
+        // Q2
+        int max = findMax(numbers);
+        int min = findMin(numbers);
+        System.out.println("max = " + max);
+        System.out.println("min = " + min);
+        System.out.println("diff = " + (max - min));
+
+        // Q3
+        System.out.println("Even number : " + countEven(numbers));
+        System.out.println("Enter number for search : ");
+        int num = input.nextInt();
+        int index = indexOf(numbers, num);
+
+        if ( index != -1){
+            System.out.println(num + " found at index " + index);
+        }
+        else {
+            System.out.println("not found");
+        }
+
+        // Q4
+        System.out.println("Orginal = ");
+        printArray(numbers);
+        System.out.println("Reversed numbers = ");
+        printArray(reverseArray(numbers));
+
+        // Q5
+        int[] grades = readGrades(5);
+
+        int passed = countPassed(grades);
+        int failed = grades.length - passed;
+        System.out.println("Passed : " + passed);
+        System.out.println("Failed : " + failed);
+
+        // Bouns
+        System.out.println("second Largest number : " + secondLargest(numbers));
+
+        input.close();
     }
-    
+
 }
