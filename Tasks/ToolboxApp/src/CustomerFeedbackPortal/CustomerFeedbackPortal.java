@@ -1,6 +1,9 @@
 package ToolboxApp.src.CustomerFeedbackPortal;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CustomerFeedbackPortal {
@@ -110,5 +113,93 @@ public class CustomerFeedbackPortal {
 
         System.out.println("Feedback added");
     }
+    static void showAll() {
+        if (count == 0) {
+            System.out.println("No feedback");
+            return;
+        }
 
+        for (int i = 0; i < count; i++) {
+            System.out.println((i + 1) + ". " + names[i] + " - rating " + ratings[i] + " - " + comments[i]);
+        }
+    }
+    static void showAverage() {
+        if (count == 0) {
+            System.out.println("No feedback");
+            return;
+        }
+
+        int total = 0;
+        for (int i = 0; i < count; i++) {
+            total = total + ratings[i];
+        }
+
+        double average = (double) total / count;
+        System.out.println("Average rating : " + average);
+    }
+    static void searchByRating() {
+        System.out.print("Rating to search 1 - 5 ");
+        try {
+            int rating = Integer.parseInt(input.nextLine().trim());
+            if (rating < 1 || rating > 5) {
+                System.out.println("Rating must be between 1 and 5");
+                return;
+            }
+
+            int found = 0;
+            for (int i = 0; i < count; i++) {
+                if (ratings[i] == rating) {
+                    System.out.println((i + 1) + ". " + names[i] + " - rating " + ratings[i] + " - " + comments[i]);
+                    found++;
+                }
+            }
+            if (found == 0) {
+                System.out.println("No feedback with rating " + rating);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Error, please enter a number");
+        }
+    }
+    static void deleteFeedback() {
+        if (count == 0) {
+            System.out.println("No feedback to delete");
+            return;
+        }
+        showAll();
+        System.out.print("Feedback number to delete: ");
+        try {
+            int number = Integer.parseInt(input.nextLine().trim());
+            if (number < 1 || number > count) {
+                System.out.println("Invalid feedback number");
+                return;
+            }
+
+            int index = number - 1;
+            for (int i = index; i < count - 1; i++) {
+                names[i] = names[i + 1];
+                ratings[i] = ratings[i + 1];
+                comments[i] = comments[i + 1];
+            }
+
+            count--;
+            names[count] = null;
+            ratings[count] = 0;
+            comments[count] = null;
+
+            System.out.println("Feedback deleted");
+        } catch (NumberFormatException e) {
+            System.out.println("Error, please enter a number");
+        }
+    }
+    static void saveFeedback() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("feedback.txt"))) {
+            for (int i = 0; i < count; i++) {
+                writer.write(names[i] + "|" + ratings[i] + "|" + comments[i]);
+                writer.newLine();
+            }
+            System.out.println("Feedback saved to feedback.txt");
+        } catch (IOException e) {
+            System.out.println("Error, " + e.getMessage());
+        }
+    }
 }
