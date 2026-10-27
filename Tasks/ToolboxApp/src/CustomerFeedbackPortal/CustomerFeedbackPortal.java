@@ -1,9 +1,6 @@
 package ToolboxApp.src.CustomerFeedbackPortal;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class CustomerFeedbackPortal {
@@ -23,7 +20,7 @@ public class CustomerFeedbackPortal {
         while (running){
             showMenu();
             if(!input.hasNextLine()){
-                break;;
+                break;
             } try {
                 int choice = Integer.parseInt(input.nextLine());
                 switch (choice){
@@ -32,7 +29,7 @@ public class CustomerFeedbackPortal {
                         break;
                     case 2:
                         showAll();
-                        break;;
+                        break;
                     case 3:
                         showAverage();
                         break;
@@ -74,7 +71,7 @@ public class CustomerFeedbackPortal {
     static void addFeedback(){
         if(count >= 100){
             System.out.println("The feedback list is full");
-            return;;
+            return;
         }
         String name ="";
         while (name.isEmpty()){
@@ -198,6 +195,30 @@ public class CustomerFeedbackPortal {
                 writer.newLine();
             }
             System.out.println("Feedback saved to feedback.txt");
+        } catch (IOException e) {
+            System.out.println("Error, " + e.getMessage());
+        }
+    }
+    static void loadFeedback() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("feedback.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null && count < 100) {
+                String[] parts = line.split("\\|", 3);
+                if (parts.length < 3) {
+                    continue;
+                }
+                try {
+                    names[count] = parts[0];
+                    ratings[count] = Integer.parseInt(parts[1]);
+                    comments[count] = parts[2];
+                    count++;
+                } catch (NumberFormatException e) {
+                    System.out.println("Skipped a line in feedback.txt");
+                }
+            }
+            System.out.println(count + " feedback loaded from feedback.txt");
+        } catch (FileNotFoundException e) {
+            System.out.println("No saved feedback found, Starting empty");
         } catch (IOException e) {
             System.out.println("Error, " + e.getMessage());
         }
