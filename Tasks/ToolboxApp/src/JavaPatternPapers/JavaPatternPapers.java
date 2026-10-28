@@ -39,21 +39,64 @@ public class JavaPatternPapers {
         System.out.println("\nPaper 10: Plus Sign");
         plusSign(n);
     }
-        //Paper 1: Hollow Square
-        static void hollowSquare(int n) {
-            for (int i = 1; i <= n; i++) {
-                for (int j = 1; j <= n; j++) {
-                    if (i == 1 || i == n || j == 1 || j == n) {
-                        System.out.print("*");
-                    } else {
-                        System.out.print(" ");
-                    }
+
+    //Paper 1: Hollow Square
+    static void hollowSquare(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (i == 1 || i == n || j == 1 || j == n) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
                 }
-                System.out.println();
             }
+            System.out.println();
         }
     }
 
     //Paper 2: Repeated Number Triangle
+    static void repeatedNumberTriangle(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Paper 3: Reverse Number Triangle
+    static void reverseNumberTriangle(int n) {
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+    }
+    // Paper 4: Full Diamond
+    static void fullDiamond(int n) {
+        for (int i = 1; i <= 5; i++) {
+            for (int k = 4; k >= i; k--) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        for (int i = 4; i >= 1; i--) {
+            for (int k = 4; k >= i; k--) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    
+}
+
 
 
