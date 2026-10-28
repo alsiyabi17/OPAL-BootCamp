@@ -27,17 +27,17 @@ public class JavaPatternPapers {
         System.out.println("\nPaper 6: X Pattern");
         xPattern(n);
 
-        System.out.println("\nPaper 7: Hourglass");
-        hourglass(n);
-
-        System.out.println("\nPaper 8: Descending Alphabet Triangle");
-        descendingAlphabet(n);
-
-        System.out.println("\nPaper 9: Odd Number Triangle");
-        oddNumberTriangle(n);
-
-        System.out.println("\nPaper 10: Plus Sign");
-        plusSign(n);
+//        System.out.println("\nPaper 7: Hourglass");
+//        hourglass(n);
+//
+//        System.out.println("\nPaper 8: Descending Alphabet Triangle");
+//        descendingAlphabet(n);
+//
+//        System.out.println("\nPaper 9: Odd Number Triangle");
+//        oddNumberTriangle(n);
+//
+//        System.out.println("\nPaper 10: Plus Sign");
+//        plusSign(n);
     }
 
     //Paper 1: Hollow Square
@@ -95,7 +95,33 @@ public class JavaPatternPapers {
             System.out.println();
         }
     }
-    
+    // Paper 5: Hollow Diamond
+    static void hollowDiamond(int n) {
+        for (int i = 1; i <= 2 * n - 1; i++) {
+            int k = (i <= n) ? i : 2 * n - i;   // row size: 1..n..1
+
+            for (int s = 0; s < n - k; s++) System.out.print(" ");
+            System.out.print("*");
+            if (k > 1) {
+                for (int s = 0; s < 2 * k - 3; s++) System.out.print(" ");
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    // Paper 6: X Pattern
+    static void xPattern(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (i == j || i + j == n + 1) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
 
 
