@@ -27,11 +27,11 @@ public class JavaPatternPapers {
         System.out.println("\nPaper 6: X Pattern");
         xPattern(n);
 
-//        System.out.println("\nPaper 7: Hourglass");
-//        hourglass(n);
-//
-//        System.out.println("\nPaper 8: Descending Alphabet Triangle");
-//        descendingAlphabet(n);
+        System.out.println("\nPaper 7: Hourglass");
+        hourglass(n);
+
+        System.out.println("\nPaper 8: Descending Alphabet Triangle");
+        descendingAlphabet(n);
 //
 //        System.out.println("\nPaper 9: Odd Number Triangle");
 //        oddNumberTriangle(n);
@@ -118,6 +118,40 @@ public class JavaPatternPapers {
                 } else {
                     System.out.print(" ");
                 }
+            }
+            System.out.println();
+        }
+    }
+    // Paper 7: Hourglass
+// Paper 7: Hourglass
+    static void hourglass(int n) {
+        for (int i = n; i >= 1; i--) {
+            for (int j = 0; j < n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < 2 * i - 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        for (int i = 2; i <= n; i++) {
+            for (int j = 0; j < n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < 2 * i - 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    // Paper 8: Descending Alphabet Triangle (n up to 26)
+    static void descendingAlphabet(int n) {
+        char start = (char) ('A' + n - 1);
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print((char) (start - j));
             }
             System.out.println();
         }
