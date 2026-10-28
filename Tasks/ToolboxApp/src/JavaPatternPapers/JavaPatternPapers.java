@@ -32,12 +32,12 @@ public class JavaPatternPapers {
 
         System.out.println("\nPaper 8: Descending Alphabet Triangle");
         descendingAlphabet(n);
-//
-//        System.out.println("\nPaper 9: Odd Number Triangle");
-//        oddNumberTriangle(n);
-//
-//        System.out.println("\nPaper 10: Plus Sign");
-//        plusSign(n);
+
+        System.out.println("\nPaper 9: Odd Number Triangle");
+        oddNumberTriangle(n);
+
+        System.out.println("\nPaper 10: Plus Sign");
+        plusSign(n);
     }
 
     //Paper 1: Hollow Square
@@ -152,6 +152,32 @@ public class JavaPatternPapers {
         for (int i = 1; i <= n; i++) {
             for (int j = 0; j < i; j++) {
                 System.out.print((char) (start - j));
+            }
+            System.out.println();
+        }
+    }
+    // Paper 9: Odd Number Triangle
+    static void oddNumberTriangle(int n) {
+        int odd = 1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(odd + " ");
+                odd += 2;
+            }
+            System.out.println();
+        }
+    }
+
+    // Paper 10: Plus Sign
+    static void plusSign(int n) {
+        int mid = n / 2;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == mid || j == mid) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
             }
             System.out.println();
         }
